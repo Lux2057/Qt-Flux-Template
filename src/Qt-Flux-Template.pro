@@ -8,4 +8,4 @@ SOURCES += main.cpp \
 
 RESOURCES += qml.qrc \
 
-include(Flux/flux.pri)
+include(FLUX/FLUX.pri)

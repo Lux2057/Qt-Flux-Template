@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>QML/JsHelper.qml</file>
+        <file>QML/qmldir</file>
+        <file>QML/Style.qml</file>
+        <file>QML/StyleSections/MainWindowStyleSection.qml</file>
     </qresource>
 </RCC>

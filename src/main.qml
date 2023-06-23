@@ -4,13 +4,13 @@ import QtQuick.Controls 2.15
 
 import Flux 1.0
 
+import "qrc:///QML"
+
 Window {
-    width: 265
-    height: 60
-    minimumWidth: 265
-    minimumHeight: 60
-    maximumWidth: 265
-    maximumHeight: 60
+    minimumWidth: Style.window.minWidth
+    minimumHeight: Style.window.minHeight
+    maximumWidth: Style.window.maxWidth
+    maximumHeight: Style.window.maxHeight
     visible: true
     title: qsTr("Qt-Flux-Template")
 
