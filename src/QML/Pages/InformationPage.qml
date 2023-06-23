@@ -51,8 +51,8 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 
             anchors.horizontalCenter: parent.horizontalCenter
 
-            width: 70
-            height: 30
+            width: Style.controls.buttonWidth
+            height: Style.controls.buttonHeight
 
             text: "Close page"
 
