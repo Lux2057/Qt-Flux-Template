@@ -4,9 +4,10 @@
 #include <QObject>
 #include <QString>
 
-#include "action/actiontypes.h"
+#include "ActionTypes.h"
 #include "lib/action.h"
 #include "lib/dispatcher.h"
+#include "store/MainStore.h"
 
 class ActionProvider final : public QObject
 {

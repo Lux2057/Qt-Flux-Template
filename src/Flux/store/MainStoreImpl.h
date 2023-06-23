@@ -3,6 +3,7 @@
 
 #include <QObject>
 
+
 class MainStoreImpl final
 {
 public:
@@ -11,9 +12,9 @@ public:
 	MainStoreImpl(MainStoreImpl&&) = delete;
 	MainStoreImpl& operator=(const MainStoreImpl&) = delete;
 	MainStoreImpl& operator=(MainStoreImpl&&) = delete;
-    ~MainStoreImpl() = default;
+	~MainStoreImpl() = default;
 
-    qint16 counter{0};
+	qint16 counter{ 0 };
 };
 
 #endif // MAINSTOREIMPL_H

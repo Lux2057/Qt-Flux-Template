@@ -4,7 +4,9 @@ import QtQuick.Controls 2.15
 
 import Flux 1.0
 
+import "qrc:///QML/Pages/Base"
 import "qrc:///QML"
+import "qrc:///QML/Pages"
 
 Window {
     minimumWidth: Style.window.minWidth
@@ -14,49 +16,51 @@ Window {
     visible: true
     title: qsTr("Qt-Flux-Template")
 
-    Column {
-        id: counterContainer
+    property var navigationPagesStack: NavigationStore.pagesStack
+    onNavigationPagesStackChanged: {
 
-        width: parent.width
-        height: parent.height
+        var itemInStack = pagesStackView.find(function (item, index) {
+            return item.vm.uid === NavigationStore.currentPage
+        })
 
-        Text {
-            id: counterValue
+        var existsInStack = itemInStack != null
 
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            text: MainStore.counter
+        var page
+        switch (NavigationStore.currentPage) {
+        case NavigationRoutes.mainPage:
+            page = mainPage
+            break
+        case NavigationRoutes.informationPage:
+            page = informationPage
+            break
         }
 
-        Row {
-            id: controlsContainer
+        if (page == null)
+            return
 
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            padding: 5
-            spacing: 5
-
-            Button {
-                id: incrementCounterBtn
-
-                width: 40
-                height: 30
-
-                onPressed: ActionProvider.setCounter(MainStore.counter + 1)
-
-                text: "+1"
-            }
-
-            Button {
-                id: decrementCounterBtn
-
-                width: 40
-                height: 30
-
-                onPressed: ActionProvider.setCounter(MainStore.counter - 1)
-
-                text: "-1"
-            }
+        if (existsInStack) {
+            pagesStackView.pop(page)
+        } else {
+            pagesStackView.push(page)
         }
+    }
+
+    StackView {
+        id: pagesStackView
+
+        anchors.fill: parent
+
+        Component.onCompleted: NavigationActionProvider.setPage(
+                                   NavigationRoutes.mainPage)
+    }
+
+    MainPage {
+        id: mainPage
+        visible: false
+    }
+
+    InformationPage {
+        id: informationPage
+        visible: false
     }
 }
