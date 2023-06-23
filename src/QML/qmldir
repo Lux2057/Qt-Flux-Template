@@ -1,0 +1,2 @@
+singleton JsHelper 1.0 JsHelper.qml
+singleton Style 1.0 Style.qml
