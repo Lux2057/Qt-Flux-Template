@@ -1,4 +1,4 @@
 #include "NavigationStoreImpl.h"
 
 
-NavigationStoreImpl::NavigationStoreImpl(){}
+NavigationStoreImpl::NavigationStoreImpl() {}

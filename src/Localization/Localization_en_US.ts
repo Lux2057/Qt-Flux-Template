@@ -22,17 +22,22 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../QML/Pages/MainPage.qml" line="31"/>
+        <location filename="../QML/Pages/MainPage.qml" line="32"/>
         <source>Main page</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../QML/Pages/MainPage.qml" line="39"/>
+        <location filename="../QML/Pages/MainPage.qml" line="40"/>
         <source>Counter</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../QML/Pages/MainPage.qml" line="105"/>
+        <source>TEST TEXT</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../QML/Pages/MainPage.qml" line="116"/>
         <source>Information page</source>
         <translation></translation>
     </message>

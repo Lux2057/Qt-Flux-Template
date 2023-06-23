@@ -17,9 +17,9 @@ public:
 	static ActionProvider& instance() {
 		static ActionProvider self;
 		return self;
-	}	
+	}
 
-    Q_INVOKABLE static void setCounter(const qint16& counter);
+	Q_INVOKABLE static void setCounter(const qint16& counter);
 
 private:
 	ActionProvider() = default;

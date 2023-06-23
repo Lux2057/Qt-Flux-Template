@@ -14,9 +14,9 @@ void LocalizationService::setLanguage(QString code) {
 }
 
 QString LocalizationService::MAIN_WINDOW_TITLE_LT() {
-    return QObject::tr("Qt FLUX template");
+	return QObject::tr("Qt FLUX template");
 }
 
 QString LocalizationService::CHOOSE_LANGUAGE_LT() {
-    return QObject::tr("Choose language");
+	return QObject::tr("Choose language");
 }
