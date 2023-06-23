@@ -11,5 +11,7 @@
         <file>QML/Pages/InformationPage.qml</file>
         <file>QML/Pages/MainPage.qml</file>
         <file>QML/StyleSections/ControlsStyleSection.qml</file>
+        <file>Localization/Localization_en_US.qm</file>
+        <file>Localization/Localization_ru_RU.qm</file>
     </qresource>
 </RCC>

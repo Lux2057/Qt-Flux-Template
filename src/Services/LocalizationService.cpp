@@ -14,5 +14,9 @@ void LocalizationService::setLanguage(QString code) {
 }
 
 QString LocalizationService::MAIN_WINDOW_TITLE_LT() {
-	return QObject::tr("Thermal visor UI prototype (RTSP stream)");
+    return QObject::tr("Qt FLUX template");
+}
+
+QString LocalizationService::CHOOSE_LANGUAGE_LT() {
+    return QObject::tr("Choose language");
 }

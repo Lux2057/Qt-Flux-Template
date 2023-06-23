@@ -2,6 +2,10 @@ QT += quick quickcontrols2 multimedia
 
 CONFIG += c++17 embed_translations
 
+TRANSLATIONS += \
+    Localization/Localization_ru_RU.ts \
+    Localization/Localization_en_US.ts \
+
 DEFINES += QT_DEPRECATED_WARNINGSs
 
 SOURCES += main.cpp \
