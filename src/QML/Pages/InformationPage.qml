@@ -20,13 +20,13 @@ Page {
         Label {
             id: titleLbl
 
-            text: "Information page"
+            text: qsTr("Information page")
         }
 
         Label {
             id: counterLbl
 
-            text: "Counter: " + MainStore.counter
+            text: qsTr("Counter") + ": " + MainStore.counter
         }
 
         Text {
@@ -54,7 +54,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
             width: Style.controls.buttonWidth
             height: Style.controls.buttonHeight
 
-            text: "Close page"
+            text: qsTr("Close page")
 
             onClicked: NavigationActionProvider.closeCurrentPage()
         }

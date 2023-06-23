@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtMultimedia 5.15
 
 import Flux 1.0
+import QmlProviders 1.0
 
 import "qrc:///QML"
 import "qrc:///QML/Pages/Base"
@@ -27,7 +28,7 @@ Page {
 
             anchors.horizontalCenter: parent.horizontalCenter
 
-            text: "Main page"
+            text: qsTr("Main page")
         }
 
         Label {
@@ -35,7 +36,7 @@ Page {
 
             anchors.horizontalCenter: parent.horizontalCenter
 
-            text: "Counter: " + MainStore.counter
+            text: qsTr("Counter") + ": " + MainStore.counter
         }
 
         Row {
@@ -66,6 +67,33 @@ Page {
             }
         }
 
+        Row {
+            spacing: 10
+
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            Label {
+                id: languagePickerLbl
+
+                text: LocalizationService.CHOOSE_LANGUAGE_LT
+            }
+
+            ComboBox {
+                id: languagePicker
+
+                width: Style.controls.buttonWidth
+                height: Style.controls.buttonHeight
+
+                model: [Constants.en_US, Constants.ru_RU]
+
+                Component.onCompleted: LocalizationService.setLanguage(
+                                           currentValue)
+
+                onCurrentValueChanged: LocalizationService.setLanguage(
+                                           currentValue)
+            }
+        }
+
         Button {
             id: backButton
 
@@ -74,7 +102,7 @@ Page {
             width: Style.controls.buttonWidth
             height: Style.controls.buttonHeight
 
-            text: "Information page"
+            text: qsTr("Information page")
 
             onClicked: NavigationActionProvider.setPage(
                            NavigationRoutes.informationPage)

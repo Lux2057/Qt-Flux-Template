@@ -7,4 +7,6 @@ QtObject {
     readonly property string mainPage: "mainPage"
 
     readonly property string informationPage: "informationPage"
+
+    readonly property string settingsPage: "settingsPage"
 }

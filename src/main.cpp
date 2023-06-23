@@ -1,5 +1,7 @@
-#include <QGuiApplication>
+#include <functional>
+#include <qqmlcontext.h>
 #include <QQmlApplicationEngine>
+#include <QGuiApplication>
 #include <QSharedPointer>
 
 #include <store/MainStore.h>
@@ -7,6 +9,8 @@
 #include "action/NavigationActionProvider.h"
 #include "lib/dispatcher.h"
 #include "store/NavigationStore.h"
+#include "Providers/QmlConstantsProvider.h"
+#include "Services/LocalizationService.h"
 
 
 using namespace flux_qt;
@@ -53,6 +57,15 @@ void qml_register() {
 		                                          return &NavigationStore::instance();
 	                                          });
 
+    qmlRegisterSingletonType<QmlConstantsProvider>("QmlProviders", 1, 0, "Constants",
+                                                   [](QQmlEngine* engine, QJSEngine* scriptEngine) -> QObject* {
+                                                       Q_UNUSED(engine)
+                                                       Q_UNUSED(scriptEngine)
+
+                                                       QQmlEngine::setObjectOwnership(&QmlConstantsProvider::instance(), QQmlEngine::CppOwnership);
+                                                       return &QmlConstantsProvider::instance();
+                                                   });
+
 }
 
 int main(int argc, char* argv[]) {
@@ -62,8 +75,9 @@ int main(int argc, char* argv[]) {
 
 	qml_register();
 
-	QQmlApplicationEngine engine;
-
+    QQmlApplicationEngine engine;
+    LocalizationService localizationService(&engine);
+    engine.rootContext()->setContextProperty("LocalizationService", &localizationService);
 	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 	if (engine.rootObjects().isEmpty())
 		return -1;

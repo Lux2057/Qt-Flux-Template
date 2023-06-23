@@ -14,7 +14,7 @@ Window {
     maximumWidth: Style.window.maxWidth
     maximumHeight: Style.window.maxHeight
     visible: true
-    title: qsTr("Qt-Flux-Template")
+    title: LocalizationService.MAIN_WINDOW_TITLE_LT
 
     property var navigationPagesStack: NavigationStore.pagesStack
     onNavigationPagesStackChanged: {
