@@ -7,6 +7,7 @@
 #include "action/NavigationActionProvider.h"
 #include "lib/dispatcher.h"
 #include "store/NavigationStore.h"
+#include "Providers/QmlConstantsProvider.h"
 
 
 using namespace flux_qt;
@@ -52,6 +53,15 @@ void qml_register() {
 		                                          QQmlEngine::setObjectOwnership(&NavigationStore::instance(), QQmlEngine::CppOwnership);
 		                                          return &NavigationStore::instance();
 	                                          });
+
+    qmlRegisterSingletonType<QmlConstantsProvider>("QmlProviders", 1, 0, "Constants",
+                                                   [](QQmlEngine* engine, QJSEngine* scriptEngine) -> QObject* {
+                                                       Q_UNUSED(engine)
+                                                       Q_UNUSED(scriptEngine)
+
+                                                       QQmlEngine::setObjectOwnership(&QmlConstantsProvider::instance(), QQmlEngine::CppOwnership);
+                                                       return &QmlConstantsProvider::instance();
+                                                   });
 
 }
 

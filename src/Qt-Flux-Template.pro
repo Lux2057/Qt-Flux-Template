@@ -9,3 +9,5 @@ SOURCES += main.cpp \
 RESOURCES += qml.qrc \
 
 include(FLUX/FLUX.pri)
+include(Constants/Constants.pri)
+include(Providers/Providers.pri)
