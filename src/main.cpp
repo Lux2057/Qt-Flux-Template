@@ -1,5 +1,7 @@
-#include <QGuiApplication>
+#include <functional>
+#include <qqmlcontext.h>
 #include <QQmlApplicationEngine>
+#include <QGuiApplication>
 #include <QSharedPointer>
 
 #include <store/MainStore.h>
@@ -8,6 +10,7 @@
 #include "lib/dispatcher.h"
 #include "store/NavigationStore.h"
 #include "Providers/QmlConstantsProvider.h"
+#include "Services/LocalizationService.h"
 
 
 using namespace flux_qt;
@@ -72,8 +75,9 @@ int main(int argc, char* argv[]) {
 
 	qml_register();
 
-	QQmlApplicationEngine engine;
-
+    QQmlApplicationEngine engine;
+    LocalizationService localizationService(&engine);
+    engine.rootContext()->setContextProperty("LocalizationService", &localizationService);
 	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 	if (engine.rootObjects().isEmpty())
 		return -1;
