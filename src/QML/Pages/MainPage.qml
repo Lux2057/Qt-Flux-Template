@@ -4,6 +4,7 @@ import QtMultimedia 5.15
 
 import Flux 1.0
 import QmlProviders 1.0
+import CppControls 1.0
 
 import "qrc:///QML"
 import "qrc:///QML/Pages/Base"
@@ -86,12 +87,30 @@ Page {
 
                 model: [Constants.en_US, Constants.ru_RU]
 
-                Component.onCompleted: LocalizationService.setLanguage(
-                                           currentValue)
+                Component.onCompleted: {
+                    LocalizationService.setLanguage(currentValue)
+                    exampleCppControl.refreshText()
+                }
 
-                onCurrentValueChanged: LocalizationService.setLanguage(
-                                           currentValue)
+                onCurrentValueChanged: {
+                    LocalizationService.setLanguage(currentValue)
+                    exampleCppControl.refreshText()
+                }
             }
+        }
+
+        ExampleControl {
+            id: exampleCppControl
+
+            text: qsTr("TEST TEXT")
+        }
+
+        Label {
+            id: exampleControlDisplayLbl
+
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: exampleCppControl.text
         }
 
         Button {

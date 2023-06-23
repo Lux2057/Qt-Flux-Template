@@ -7,7 +7,7 @@
 
 class QmlConstantsProvider final : public QObject
 {
-	Q_OBJECT	
+	Q_OBJECT
 
 	Q_PROPERTY(QString ru_RU READ ru_RU CONSTANT)
 
@@ -17,7 +17,7 @@ public:
 	static QmlConstantsProvider& instance() {
 		static QmlConstantsProvider self;
 		return self;
-	}	
+	}
 
 	static QString ru_RU();
 	static QString en_US();

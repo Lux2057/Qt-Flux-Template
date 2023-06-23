@@ -3,7 +3,7 @@
 
 enum class ActionType
 {
-    SetCounter
+	SetCounter
 };
 
 #endif
