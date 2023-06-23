@@ -5,5 +5,11 @@
         <file>QML/qmldir</file>
         <file>QML/Style.qml</file>
         <file>QML/StyleSections/MainWindowStyleSection.qml</file>
+        <file>QML/Pages/Base/PageVM.qml</file>
+        <file>QML/Pages/Base/qmldir</file>
+        <file>QML/Pages/Base/NavigationRoutes.qml</file>
+        <file>QML/Pages/InformationPage.qml</file>
+        <file>QML/Pages/MainPage.qml</file>
+        <file>QML/StyleSections/ControlsStyleSection.qml</file>
     </qresource>
 </RCC>

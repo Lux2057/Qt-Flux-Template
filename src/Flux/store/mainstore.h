@@ -6,15 +6,16 @@
 #include <QSharedPointer>
 
 #include "MainStoreImpl.h"
+#include "action/ActionTypes.h"
 #include "lib/action.h"
 #include "lib/store.h"
 
 
 class MainStore final : public QObject, public flux_qt::Store
 {
-	Q_OBJECT	
+	Q_OBJECT
 
-    Q_PROPERTY(qint16 counter READ getCounter NOTIFY counterChanged)
+	Q_PROPERTY(qint16 counter READ getCounter NOTIFY counterChanged)
 
 public:
 	static MainStore& instance() {
@@ -22,12 +23,14 @@ public:
 		return self;
 	}
 
-    void process(const QSharedPointer<flux_qt::Action>& action) Q_DECL_OVERRIDE;
+	static QString UID() { return "MainStore"; }
 
-    qint16 getCounter() const;
+	void process(const QSharedPointer<flux_qt::Action>& action) Q_DECL_OVERRIDE;
+
+	qint16 getCounter() const;
 
 signals:
-    void counterChanged();
+	void counterChanged();
 
 private:
 	MainStore();
@@ -35,11 +38,11 @@ private:
 	MainStore(MainStore&&) = delete;
 	MainStore& operator=(const MainStore&) = delete;
 	MainStore& operator=(MainStore&&) = delete;
-	~MainStore() override;	
+	~MainStore() override;
 
 	QScopedPointer<MainStoreImpl> _store;
 
-    void _processSetCounterAction(const QSharedPointer<flux_qt::Action>& action);
+	void _processSetCounterAction(const QSharedPointer<flux_qt::Action>& action);
 };
 
 #endif

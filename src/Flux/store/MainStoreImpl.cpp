@@ -1,5 +1,4 @@
 #include "MainStoreImpl.h"
 
-MainStoreImpl::MainStoreImpl() {
 
-}
+MainStoreImpl::MainStoreImpl() {}
